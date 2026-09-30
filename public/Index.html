@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="sheet">
+    <header>
+      <h1>งานของฉัน</h1>
+      <p id="summary" class="summary" aria-live="polite"></p>
+    </header>
+
+    <form id="add-form" class="add-form">
+      <input id="title" type="text" placeholder="มีอะไรต้องทำ?" aria-label="ชื่องาน" maxlength="120" required>
+      <input id="category" type="text" placeholder="หมวดหมู่ เช่น เรียน" aria-label="หมวดหมู่" maxlength="30">
+      <select id="priority" aria-label="ความสำคัญ">
+        <option value="low">ไม่รีบ</option>
+        <option value="medium" selected>ปกติ</option>
+        <option value="high">ด่วน</option>
+      </select>
+      <button type="submit" class="primary">เพิ่มงาน</button>
+    </form>
+    <p id="error" class="error" role="alert" hidden></p>
+
+    <div class="filters">
+      <div class="tabs" role="tablist" aria-label="กรองตามสถานะ">
+        <button class="tab active" data-done="">ทั้งหมด</button>
+        <button class="tab" data-done="false">ค้างอยู่</button>
+        <button class="tab" data-done="true">เสร็จแล้ว</button>
+      </div>
+      <select id="filter-category" aria-label="กรองตามหมวดหมู่">
+        <option value="">ทุกหมวดหมู่</option>
+      </select>
+    </div>
+
+    <ul id="task-list" class="task-list"></ul>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
